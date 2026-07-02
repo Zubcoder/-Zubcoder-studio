@@ -971,6 +971,281 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-secondary);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 40px;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: rgba(108,92,231,0.15);
+      color: var(--text-primary);
+    }
+
+    .modal h2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff, var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .modal .modal-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: inherit;
+      transition: all 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108,92,231,0.15);
+    }
+
+    .form-group textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .form-group select option {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108,92,231,0.4);
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 32px 0;
+      display: none;
+    }
+
+    .form-success.active {
+      display: block;
+    }
+
+    .form-success .success-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .form-success h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Scroll to top */
+    .scroll-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(108,92,231,0.4);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(108,92,231,0.5);
+    }
+
+    /* Cookie banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      z-index: 200;
+      display: none;
+      animation: slideUp 0.4s ease;
+    }
+
+    .cookie-banner.active {
+      display: block;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .cookie-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cookie-text a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .cookie-btn {
+      padding: 10px 24px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    /* Active nav link */
+    .nav-links a.active {
+      color: var(--accent-light);
+    }
+
+    /* Typing effect */
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--accent-light);
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -1023,7 +1298,7 @@
     <!-- Stats -->
     <div class="stats-bar fade-in">
       <div class="stat-item">
-        <div class="stat-number">12+</div>
+        <div class="stat-number" data-count="12" data-suffix="+">0</div>
         <div class="stat-label">проектов</div>
       </div>
       <div class="stat-item">
@@ -1364,6 +1639,66 @@
 
   </div>
 
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="contactForm">
+        <h2>Обсудить проект</h2>
+        <p class="modal-subtitle">Заполните форму — мы свяжемся в течение 2 часов</p>
+        <form id="briefForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label>Ваше имя *</label>
+            <input type="text" name="name" required placeholder="Как к вам обращаться?">
+          </div>
+          <div class="form-group">
+            <label>Телефон или Telegram *</label>
+            <input type="text" name="contact" required placeholder="+7 (999) 123-45-67 или @username">
+          </div>
+          <div class="form-group">
+            <label>Что вас интересует?</label>
+            <select name="service">
+              <option value="">Выберите услугу</option>
+              <option value="website">Веб-разработка</option>
+              <option value="mobile">Мобильное приложение</option>
+              <option value="telegram">Telegram-бот</option>
+              <option value="promotion">Продвижение и реклама</option>
+              <option value="design">Дизайн и брендинг</option>
+              <option value="complex">Комплексное решение</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Расскажите о проекте</label>
+            <textarea name="description" placeholder="Опишите вашу идею, задачи и пожелания..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Отправить заявку</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">&#10003;</div>
+        <h3>Заявка отправлена!</h3>
+        <p>Мы свяжемся с вами в ближайшее время.<br>Спасибо за интерес к Zubcoder Studio!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        Мы используем файлы cookie для улучшения работы сайта.
+        Продолжая использовать сайт, вы соглашаетесь с
+        <a href="privacy.html">Политикой конфиденциальности</a>.
+      </div>
+      <button class="cookie-btn" onclick="acceptCookies()">Принять</button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -1397,15 +1732,172 @@
       });
     });
 
-    // Navbar background on scroll
+    // Navbar background + scroll to top + active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksAll = document.querySelectorAll('.nav-links a');
+
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.style.background = 'rgba(10, 10, 26, 0.95)';
-      } else {
-        nav.style.background = 'rgba(10, 10, 26, 0.85)';
-      }
+      const scrollTop = document.getElementById('scrollTop');
+
+      // Nav background
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(10, 10, 26, 0.95)'
+        : 'rgba(10, 10, 26, 0.85)';
+
+      // Scroll to top button
+      scrollTop.classList.toggle('visible', window.scrollY > 500);
+
+      // Active nav link
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) current = section.id;
+      });
+      navLinksAll.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
     });
+
+    // Animated counters
+    function animateCounter(el, target, suffix) {
+      let start = 0;
+      const duration = 2000;
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(eased * target);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = 'true';
+          const counters = entry.target.querySelectorAll('.stat-number[data-count]');
+          counters.forEach(c => {
+            animateCounter(c, parseInt(c.dataset.count), c.dataset.suffix || '');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) statsObserver.observe(statsBar);
+
+    // Contact modal
+    function openModal() {
+      document.getElementById('contactModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // Reset form state
+      document.getElementById('contactForm').style.display = 'block';
+      document.getElementById('formSuccess').classList.remove('active');
+    }
+
+    function closeModal() {
+      document.getElementById('contactModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on overlay click
+    document.getElementById('contactModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+
+    // Close modal on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Form submission
+    function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      // Build mailto link with form data
+      const name = data.get('name');
+      const contact = data.get('contact');
+      const service = data.get('service');
+      const description = data.get('description');
+
+      const serviceNames = {
+        'website': 'Веб-разработка',
+        'mobile': 'Мобильное приложение',
+        'telegram': 'Telegram-бот',
+        'promotion': 'Продвижение и реклама',
+        'design': 'Дизайн и брендинг',
+        'complex': 'Комплексное решение'
+      };
+
+      const subject = encodeURIComponent('Заявка с сайта Zubcoder Studio — ' + (serviceNames[service] || 'Общий запрос'));
+      const body = encodeURIComponent(
+        'Имя: ' + name + '\n' +
+        'Контакт: ' + contact + '\n' +
+        'Услуга: ' + (serviceNames[service] || 'Не выбрана') + '\n' +
+        'Описание: ' + (description || 'Не указано') + '\n\n' +
+        '---\nОтправлено с сайта Zubcoder Studio'
+      );
+
+      // Open mail client
+      window.open('mailto:zubcoder.app@yandex.ru?subject=' + subject + '&body=' + body, '_blank');
+
+      // Show success
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('active');
+
+      // Auto close after 3s
+      setTimeout(closeModal, 3000);
+    }
+
+    // Wire up all CTA buttons to open modal
+    document.querySelectorAll('a[href="#contact"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    // Cookie banner
+    function acceptCookies() {
+      localStorage.setItem('cookies_accepted', 'true');
+      document.getElementById('cookieBanner').classList.remove('active');
+    }
+
+    if (!localStorage.getItem('cookies_accepted')) {
+      setTimeout(() => {
+        document.getElementById('cookieBanner').classList.add('active');
+      }, 2000);
+    }
+
+    // Typing effect for hero subtitle
+    const heroP = document.querySelector('.hero p');
+    if (heroP) {
+      const text = heroP.textContent.trim();
+      heroP.innerHTML = '';
+      let i = 0;
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      heroP.appendChild(cursor);
+
+      function typeChar() {
+        if (i < text.length) {
+          heroP.insertBefore(document.createTextNode(text[i]), cursor);
+          i++;
+          setTimeout(typeChar, 25);
+        } else {
+          setTimeout(() => cursor.remove(), 2000);
+        }
+      }
+
+      setTimeout(typeChar, 500);
+    }
   </script>
 </body>
 </html>
