@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zubcoder Studio — Разработка сайтов, приложений и Telegram-ботов</title>
+  <meta name="description" content="Zubcoder Studio — веб-студия полного цикла. Создаём сайты, мобильные приложения, Telegram-ботов. Продвижение и реклама.">
+  <meta name="keywords" content="веб-студия, разработка сайтов, мобильные приложения, Telegram боты, продвижение, реклама, SEO, Zubcoder">
+  <meta property="og:title" content="Zubcoder Studio — Цифровые решения для бизнеса">
+  <meta property="og:description" content="Разработка сайтов, мобильных приложений, Telegram-ботов. Продвижение и реклама вашего бизнеса.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a1a;
+      --bg-secondary: #12122a;
+      --bg-card: #1a1a3e;
+      --bg-card-hover: #222255;
+      --text-primary: #f0f0ff;
+      --text-secondary: #a0a0c0;
+      --accent: #6c5ce7;
+      --accent-light: #a29bfe;
+      --gradient-1: #6c5ce7;
+      --gradient-2: #00cec9;
+      --gradient-3: #fd79a8;
+      --border: rgba(255,255,255,0.06);
+      --glow: rgba(108, 92, 231, 0.3);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    .bg-effects {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-effects::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(108,92,231,0.15) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .bg-effects::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,206,201,0.1) 0%, transparent 70%);
+      bottom: -150px;
+      left: -150px;
+      animation: float 25s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(10, 10, 26, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-logo-text span {
+      color: var(--accent-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-light);
+    }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 92, 231, 0.4);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 40px var(--glow);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 8px 40px var(--glow); }
+      50% { box-shadow: 0 8px 60px rgba(108, 92, 231, 0.5); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(108, 92, 231, 0.12);
+      border: 1px solid rgba(108, 92, 231, 0.2);
+      border-radius: 30px;
+      font-size: 13px;
+      color: var(--accent-light);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gradient-2);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #fff 0%, var(--accent-light) 50%, var(--gradient-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(108, 92, 231, 0.4);
+    }
+
+    .btn-secondary {
+      padding: 16px 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(108, 92, 231, 0.08);
+      transform: translateY(-3px);
+    }
+
+    /* Stats */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin: 60px 0;
+      padding: 32px;
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    /* Section */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, var(--accent-light), var(--gradient-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, linear-gradient(135deg, var(--gradient-1), var(--gradient-2)));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.1);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px var(--card-glow, rgba(108,92,231,0.1));
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      background: var(--icon-bg, rgba(108,92,231,0.12));
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .service-features {
+      list-style: none;
+    }
+
+    .service-features li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-features li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      flex-shrink: 0;
+    }
+
+    /* Advantages */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .advantage-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.1);
+      background: var(--bg-card-hover);
+    }
+
+    .advantage-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .advantage-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .advantage-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Process / How We Work */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      position: relative;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 32px 16px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-step h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .process-line {
+      position: absolute;
+      top: 60px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .portfolio-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .portfolio-preview {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-preview::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, var(--bg-card) 100%);
+    }
+
+    .portfolio-info {
+      padding: 24px;
+    }
+
+    .portfolio-info h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-info p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .portfolio-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      color: var(--text-secondary);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 500;
+    }
+
+    .portfolio-tag.highlight {
+      background: rgba(108, 92, 231, 0.15);
+      color: var(--accent-light);
+      border-color: rgba(108, 92, 231, 0.2);
+    }
+
+    /* Packages */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .package-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .package-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(108,92,231,0.08) 0%, var(--bg-card) 100%);
+    }
+
+    .package-card.featured::before {
+      content: 'Популярный';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .package-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .package-price {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .package-price-note {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .package-features li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-features li .check {
+      color: var(--gradient-2);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .package-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    .package-btn-primary {
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      color: #fff;
+    }
+
+    .package-btn-primary:hover {
+      box-shadow: 0 8px 24px rgba(108, 92, 231, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .package-btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .package-btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(108, 92, 231, 0.08);
+    }
+
+    /* Technologies */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .tech-item {
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .tech-item:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+      background: rgba(108, 92, 231, 0.08);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 80px 40px;
+      background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,206,201,0.06));
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      margin: 40px 0 80px;
+    }
+
+    .cta-section h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff, var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta-contacts {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .cta-telegram {
+      background: linear-gradient(135deg, #0088cc, #00aaee);
+      color: #fff;
+    }
+
+    .cta-telegram:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,136,204,0.3);
+    }
+
+    .cta-email {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .cta-email:hover {
+      border-color: var(--accent);
+      background: rgba(108,92,231,0.08);
+      transform: translateY(-3px);
+    }
+
+    .cta-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+    }
+
+    .cta-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(37,211,102,0.3);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom {
+      margin-top: 12px;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .process-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .process-line { display: none; }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta-desktop { display: none; }
+      .hamburger { display: flex; }
+
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10,10,26,0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero { padding: 120px 0 60px; }
+
+      .stats-bar {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .section-title { font-size: 28px; }
+
+      .services-grid,
+      .packages-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .process-line { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero h1 { font-size: 28px; }
+      .advantages-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 40px 20px; }
+      .cta-section h2 { font-size: 24px; }
+    }
+
+    /* Animations on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-effects"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img class="nav-logo-icon" src="logo.png" alt="Zubcoder Studio">
+        <div class="nav-logo-text">Zubcoder <span>Studio</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#advantages">Преимущества</a></li>
+        <li><a href="#process">Как мы работаем</a></li>
+        <li><a href="#portfolio">Портфолио</a></li>
+        <li><a href="#packages">Пакеты</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta nav-cta-desktop">Обсудить проект</a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <img src="logo.png" alt="Zubcoder Studio" class="hero-logo">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Принимаем заказы
+      </div>
+      <h1>Создаём цифровые<br>решения для бизнеса</h1>
+      <p>
+        Разработка сайтов, мобильных приложений, Telegram-ботов.
+        Продвижение и реклама вашего бизнеса в интернете.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Обсудить проект</a>
+        <a href="#portfolio" class="btn-secondary">Наши работы</a>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar fade-in">
+      <div class="stat-item">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">проектов</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">AI</div>
+        <div class="stat-label">технологии</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">поддержка</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">RU</div>
+        <div class="stat-label">для российского рынка</div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <h2 class="section-title fade-in">Наши <span>услуги</span></h2>
+      <p class="section-subtitle fade-in">Полный цикл разработки — от идеи до запуска и продвижения</p>
+
+      <div class="services-grid">
+
+        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #6c5ce7, #a29bfe); --icon-bg: rgba(108,92,231,0.12);">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Веб-разработка</h3>
+          <p>Создаём современные сайты любой сложности — от лендингов до сложных веб-приложений.</p>
+          <ul class="service-features">
+            <li>Лендинги и промо-сайты</li>
+            <li>Корпоративные сайты</li>
+            <li>Интернет-магазины</li>
+            <li>Веб-приложения (SPA/PWA)</li>
+            <li>Админ-панели и CRM</li>
+          </ul>
+        </div>
+
+        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #00cec9, #55efc4); --icon-bg: rgba(0,206,201,0.12);">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-linecap="round" stroke-width="3"/></svg>
+          </div>
+          <h3>Мобильные приложения</h3>
+          <p>Кроссплатформенные приложения для Android и iOS на Flutter с публикацией в магазинах.</p>
+          <ul class="service-features">
+            <li>Android + iOS (Flutter)</li>
+            <li>Публикация в RuStore / Google Play</li>
+            <li>Интеграция с AI / нейросетями</li>
+            <li>Push-уведомления</li>
+            <li>Аналитика и монетизация</li>
+          </ul>
+        </div>
+
+        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #0088cc, #00aaee); --icon-bg: rgba(0,136,204,0.12);">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0088cc" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <h3>Telegram-боты</h3>
+          <p>Автоматизация бизнеса через Telegram — боты для продаж, поддержки клиентов и внутренних процессов.</p>
+          <ul class="service-features">
+            <li>Чат-боты для поддержки</li>
+            <li>Боты для продаж и заказов</li>
+            <li>Интеграция с CRM и 1С</li>
+            <li>Рассылки и уведомления</li>
+            <li>AI-боты с нейросетями</li>
+          </ul>
+        </div>
+
+        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #fd79a8, #e84393); --icon-bg: rgba(253,121,168,0.12);">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+          </div>
+          <h3>Продвижение и реклама</h3>
+          <p>Комплексное продвижение в интернете — от SEO до таргетированной рекламы и SMM.</p>
+          <ul class="service-features">
+            <li>SEO-оптимизация</li>
+            <li>Контекстная реклама (Яндекс)</li>
+            <li>Таргетированная реклама</li>
+            <li>SMM и ведение соцсетей</li>
+            <li>Аналитика и отчётность</li>
+          </ul>
+        </div>
+
+        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #fdcb6e, #f39c12); --icon-bg: rgba(253,203,110,0.12);">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fdcb6e" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Дизайн и брендинг</h3>
+          <p>Создаём визуальную идентичность бренда — от логотипа до полного фирменного стиля.</p>
+          <ul class="service-features">
+            <li>UI/UX дизайн</li>
+            <li>Логотипы и фирменный стиль</li>
+            <li>Прототипирование в Figma</li>
+            <li>Дизайн мобильных приложений</li>
+            <li>Креативы для рекламы</li>
+          </ul>
+        </div>
+
+        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #00b894, #55efc4); --icon-bg: rgba(0,184,148,0.12);">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Комплексные решения</h3>
+          <p>Полный пакет: сайт + приложение + бот + продвижение. Экосистема для вашего бизнеса под ключ.</p>
+          <ul class="service-features">
+            <li>Сайт + мобильное приложение</li>
+            <li>Telegram-бот + CRM</li>
+            <li>Продвижение + аналитика</li>
+            <li>Техподдержка и обновления</li>
+            <li>Единый стиль и бренд</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="section" id="advantages">
+      <h2 class="section-title fade-in">Почему <span>мы</span></h2>
+      <p class="section-subtitle fade-in">Реальный опыт, проверенные технологии, индивидуальный подход</p>
+
+      <div class="advantages-grid">
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Быстро</h3>
+          <p>Лендинг за 3 дня, приложение за 2 недели. Без затягивания сроков.</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Надёжно</h3>
+          <p>Код на современном стеке. Серверы в России. Гарантия 3 месяца.</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Под ключ</h3>
+          <p>От дизайна до продвижения. Не нужно искать других подрядчиков.</p>
+        </div>
+        <div class="advantage-card fade-in">
+          <div class="advantage-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fdcb6e" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>AI-технологии</h3>
+          <p>Интегрируем нейросети и ИИ в ваши продукты для конкурентного преимущества.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <h2 class="section-title fade-in">Как мы <span>работаем</span></h2>
+      <p class="section-subtitle fade-in">Прозрачный процесс от первого звонка до запуска</p>
+
+      <div class="process-steps fade-in">
+        <div class="process-line"></div>
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Бриф</h3>
+          <p>Обсуждаем задачу, цели и бюджет. Бесплатная консультация.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Концепция</h3>
+          <p>Прототип, дизайн-макет и техническое задание.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Разработка</h3>
+          <p>Пишем код, показываем промежуточные результаты.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Тестирование</h3>
+          <p>QA, исправление багов, финальные правки.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">5</div>
+          <h3>Запуск</h3>
+          <p>Деплой, публикация, настройка аналитики.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section" id="portfolio">
+      <h2 class="section-title fade-in">Наши <span>проекты</span></h2>
+      <p class="section-subtitle fade-in">Экосистема AI-приложений и веб-проектов</p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card fade-in">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a3e, #2d1b69);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+          </div>
+          <div class="portfolio-info">
+            <h3>12 AI-приложений</h3>
+            <p>Экосистема мобильных AI-приложений для повседневных задач. Flutter + FastAPI + Gemini AI. Опубликованы в RuStore.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag highlight">Flutter</span>
+              <span class="portfolio-tag highlight">AI</span>
+              <span class="portfolio-tag">FastAPI</span>
+              <span class="portfolio-tag">RuStore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-in">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a2a3e, #1b4069);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="portfolio-info">
+            <h3>Zubcoder Apps</h3>
+            <p>Промо-сайт для экосистемы AI-приложений. Адаптивный дизайн, анимации, каталог приложений с прямыми ссылками.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag highlight">HTML/CSS</span>
+              <span class="portfolio-tag">Анимации</span>
+              <span class="portfolio-tag">Адаптивный</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-in">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a3e2a, #1b6940);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="portfolio-info">
+            <h3>Город во Времени</h3>
+            <p>AR-приложение с исторической картой Москвы. 100 000+ фото с геопривязкой, YandexMapKit, камера с наложением.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag highlight">Flutter</span>
+              <span class="portfolio-tag highlight">AR</span>
+              <span class="portfolio-tag">YandexMapKit</span>
+              <span class="portfolio-tag">GPS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="section" id="packages">
+      <h2 class="section-title fade-in">Пакеты <span>услуг</span></h2>
+      <p class="section-subtitle fade-in">Выберите подходящий вариант или обсудите индивидуальный</p>
+
+      <div class="packages-grid">
+
+        <div class="package-card fade-in">
+          <div class="package-name">Старт</div>
+          <div class="package-price">от 30 000 &#8381;</div>
+          <div class="package-price-note">Идеально для начала</div>
+          <ul class="package-features">
+            <li><span class="check">+</span> Лендинг / промо-сайт</li>
+            <li><span class="check">+</span> Адаптивный дизайн</li>
+            <li><span class="check">+</span> SEO-основа</li>
+            <li><span class="check">+</span> SSL-сертификат</li>
+            <li><span class="check">+</span> Срок: 3-5 дней</li>
+          </ul>
+          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
+        </div>
+
+        <div class="package-card featured fade-in">
+          <div class="package-name">Бизнес</div>
+          <div class="package-price">от 80 000 &#8381;</div>
+          <div class="package-price-note">Сайт + бот + продвижение</div>
+          <ul class="package-features">
+            <li><span class="check">+</span> Многостраничный сайт</li>
+            <li><span class="check">+</span> Telegram-бот</li>
+            <li><span class="check">+</span> Базовое SEO-продвижение</li>
+            <li><span class="check">+</span> Аналитика (Яндекс.Метрика)</li>
+            <li><span class="check">+</span> Срок: 2-3 недели</li>
+          </ul>
+          <a href="#contact" class="package-btn package-btn-primary">Заказать</a>
+        </div>
+
+        <div class="package-card fade-in">
+          <div class="package-name">Премиум</div>
+          <div class="package-price">от 200 000 &#8381;</div>
+          <div class="package-price-note">Полная экосистема</div>
+          <ul class="package-features">
+            <li><span class="check">+</span> Сайт + мобильное приложение</li>
+            <li><span class="check">+</span> Telegram-бот с AI</li>
+            <li><span class="check">+</span> Продвижение и реклама</li>
+            <li><span class="check">+</span> Брендинг и дизайн</li>
+            <li><span class="check">+</span> 3 месяца поддержки</li>
+          </ul>
+          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="section">
+      <h2 class="section-title fade-in">Наш <span>стек</span></h2>
+      <p class="section-subtitle fade-in">Современные технологии для надёжных решений</p>
+      <div class="tech-grid fade-in">
+        <div class="tech-item">Flutter</div>
+        <div class="tech-item">Dart</div>
+        <div class="tech-item">Python</div>
+        <div class="tech-item">FastAPI</div>
+        <div class="tech-item">HTML / CSS / JS</div>
+        <div class="tech-item">React</div>
+        <div class="tech-item">Node.js</div>
+        <div class="tech-item">Docker</div>
+        <div class="tech-item">PostgreSQL</div>
+        <div class="tech-item">Firebase</div>
+        <div class="tech-item">Gemini AI</div>
+        <div class="tech-item">Telegram Bot API</div>
+        <div class="tech-item">Яндекс.Облако</div>
+        <div class="tech-item">GitHub Actions</div>
+        <div class="tech-item">Figma</div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section fade-in" id="contact">
+      <h2>Готовы начать проект?</h2>
+      <p>Расскажите о вашей идее — мы предложим лучшее решение. Консультация бесплатно.</p>
+      <div class="cta-contacts">
+        <a href="https://t.me/zubcoder" class="cta-contact-btn cta-telegram" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </a>
+        <a href="https://wa.me/79991234567" class="cta-contact-btn cta-whatsapp" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:zubcoder.app@yandex.ru" class="cta-contact-btn cta-email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://zubcoder-apps.ru" target="_blank">Zubcoder Apps</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="terms.html">Пользовательское соглашение</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025&ndash;2026 Zubcoder Studio. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(10, 10, 26, 0.95)';
+      } else {
+        nav.style.background = 'rgba(10, 10, 26, 0.85)';
+      }
+    });
+  </script>
+</body>
+</html>
