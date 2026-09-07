@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zubcoder Studio — Разработка сайтов, приложений и Telegram-ботов</title>
-  <meta name="description" content="Zubcoder Studio — веб-студия полного цикла. Создаём сайты, мобильные приложения, Telegram-ботов. Продвижение и реклама.">
-  <meta name="keywords" content="веб-студия, разработка сайтов, мобильные приложения, Telegram боты, продвижение, реклама, SEO, Zubcoder">
-  <meta property="og:title" content="Zubcoder Studio — Цифровые решения для бизнеса">
-  <meta property="og:description" content="Разработка сайтов, мобильных приложений, Telegram-ботов. Продвижение и реклама вашего бизнеса.">
+  <title>Zubcoder Studio — Сайты, Telegram-боты и AI-ассистенты для бизнеса</title>
+  <meta name="description" content="Zubcoder Studio — создаём сайты, Telegram-ботов и AI-ассистентов для экспертов, коучей и малого бизнеса. От идеи до запуска.">
+  <meta name="keywords" content="разработка сайтов, Telegram-боты, AI-ассистенты, 3D-дизайн, веб-студия, Zubcoder">
+  <meta property="og:title" content="Zubcoder Studio — Сайты, Telegram-боты и AI-ассистенты">
+  <meta property="og:description" content="Создаём сайты, Telegram-ботов и AI-ассистентов для экспертов и бизнеса. От идеи до запуска.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -364,7 +364,7 @@
     /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
@@ -845,7 +845,7 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 40px 0;
+      padding: 40px 0 100px;
       border-top: 1px solid var(--border);
       color: var(--text-secondary);
       font-size: 13px;
@@ -1247,6 +1247,23 @@
       50% { opacity: 0; }
     }
   </style>
+
+  <!-- Yandex.Metrika counter (замените null на ID счётчика) -->
+  <script>
+    window.ZUBCODER_METRIKA_ID = 112362513;
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0];
+      k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    if (window.ZUBCODER_METRIKA_ID) {
+      ym(window.ZUBCODER_METRIKA_ID, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+    }
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/0" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
   <div class="bg-effects"></div>
@@ -1284,41 +1301,22 @@
         <div class="hero-badge-dot"></div>
         Принимаем заказы
       </div>
-      <h1>Создаём цифровые<br>решения для бизнеса</h1>
+      <h1>Сайты, Telegram-боты и AI-ассистенты для экспертов и бизнеса</h1>
       <p>
-        Разработка сайтов, мобильных приложений, Telegram-ботов.
-        Продвижение и реклама вашего бизнеса в интернете.
+        От идеи до запуска. Сайты с объёмным дизайном, боты для продаж и AI-помощники под ключ.
       </p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn-primary">Обсудить проект</a>
-        <a href="#portfolio" class="btn-secondary">Наши работы</a>
+        <a href="https://t.me/Zubcoder_Studio_bot" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a href="#packages" class="btn-secondary">Посмотреть пакеты</a>
       </div>
     </section>
 
-    <!-- Stats -->
-    <div class="stats-bar fade-in">
-      <div class="stat-item">
-        <div class="stat-number" data-count="12" data-suffix="+">0</div>
-        <div class="stat-label">проектов</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">AI</div>
-        <div class="stat-label">технологии</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">поддержка</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">RU</div>
-        <div class="stat-label">для российского рынка</div>
-      </div>
-    </div>
+
 
     <!-- Services -->
     <section class="section" id="services">
       <h2 class="section-title fade-in">Наши <span>услуги</span></h2>
-      <p class="section-subtitle fade-in">Полный цикл разработки — от идеи до запуска и продвижения</p>
+      <p class="section-subtitle fade-in">Сайты, боты, AI-ассистенты и визуальный дизайн для экспертов и бизнеса</p>
 
       <div class="services-grid">
 
@@ -1327,28 +1325,13 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
           <h3>Веб-разработка</h3>
-          <p>Создаём современные сайты любой сложности — от лендингов до сложных веб-приложений.</p>
+          <p>Современные сайты под ключ — от лендингов до многостраничных веб-приложений.</p>
           <ul class="service-features">
             <li>Лендинги и промо-сайты</li>
-            <li>Корпоративные сайты</li>
-            <li>Интернет-магазины</li>
-            <li>Веб-приложения (SPA/PWA)</li>
-            <li>Админ-панели и CRM</li>
-          </ul>
-        </div>
-
-        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #00cec9, #55efc4); --icon-bg: rgba(0,206,201,0.12);">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-linecap="round" stroke-width="3"/></svg>
-          </div>
-          <h3>Мобильные приложения</h3>
-          <p>Кроссплатформенные приложения для Android и iOS на Flutter с публикацией в магазинах.</p>
-          <ul class="service-features">
-            <li>Android + iOS (Flutter)</li>
-            <li>Публикация в RuStore / Google Play</li>
-            <li>Интеграция с AI / нейросетями</li>
-            <li>Push-уведомления</li>
-            <li>Аналитика и монетизация</li>
+            <li>Многостраничные сайты</li>
+            <li>Адаптивная вёрстка</li>
+            <li>SEO-заготовки и Метрика</li>
+            <li>Формы и интеграции</li>
           </ul>
         </div>
 
@@ -1356,29 +1339,14 @@
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0088cc" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
           </div>
-          <h3>Telegram-боты</h3>
-          <p>Автоматизация бизнеса через Telegram — боты для продаж, поддержки клиентов и внутренних процессов.</p>
+          <h3>Telegram-боты и AI-ассистенты</h3>
+          <p>Боты для продаж, заявок и поддержки — включая AI-ассистентов с базой знаний.</p>
           <ul class="service-features">
-            <li>Чат-боты для поддержки</li>
-            <li>Боты для продаж и заказов</li>
+            <li>Боты для продаж и заявок</li>
+            <li>AI-ассистенты (GPT / Claude / YandexGPT)</li>
             <li>Интеграция с CRM и 1С</li>
-            <li>Рассылки и уведомления</li>
-            <li>AI-боты с нейросетями</li>
-          </ul>
-        </div>
-
-        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #fd79a8, #e84393); --icon-bg: rgba(253,121,168,0.12);">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>
-          </div>
-          <h3>Продвижение и реклама</h3>
-          <p>Комплексное продвижение в интернете — от SEO до таргетированной рекламы и SMM.</p>
-          <ul class="service-features">
-            <li>SEO-оптимизация</li>
-            <li>Контекстная реклама (Яндекс)</li>
-            <li>Таргетированная реклама</li>
-            <li>SMM и ведение соцсетей</li>
-            <li>Аналитика и отчётность</li>
+            <li>Каталог, корзина, оплата</li>
+            <li>Уведомления администратору</li>
           </ul>
         </div>
 
@@ -1386,14 +1354,14 @@
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fdcb6e" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
-          <h3>Дизайн и брендинг</h3>
-          <p>Создаём визуальную идентичность бренда — от логотипа до полного фирменного стиля.</p>
+          <h3>3D-дизайн и визуальные фирменные фоны</h3>
+          <p>Объёмный hero, фирменные фоны, 3D-элементы и анимация для запоминающегося сайта.</p>
           <ul class="service-features">
-            <li>UI/UX дизайн</li>
-            <li>Логотипы и фирменный стиль</li>
-            <li>Прототипирование в Figma</li>
-            <li>Дизайн мобильных приложений</li>
-            <li>Креативы для рекламы</li>
+            <li>Объёмный hero и градиентные фоны</li>
+            <li>3D-элементы (CSS / Spline / Three.js)</li>
+            <li>Анимации и микровзаимодействия</li>
+            <li>Брендовое видео и кружки</li>
+            <li>UI/UX и прототипы в Figma</li>
           </ul>
         </div>
 
@@ -1401,14 +1369,14 @@
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
           </div>
-          <h3>Комплексные решения</h3>
-          <p>Полный пакет: сайт + приложение + бот + продвижение. Экосистема для вашего бизнеса под ключ.</p>
+          <h3>Продвижение и поддержка</h3>
+          <p>SEO, аналитика, настройка рекламы и техническая поддержка сайтов и ботов.</p>
           <ul class="service-features">
-            <li>Сайт + мобильное приложение</li>
-            <li>Telegram-бот + CRM</li>
-            <li>Продвижение + аналитика</li>
-            <li>Техподдержка и обновления</li>
-            <li>Единый стиль и бренд</li>
+            <li>SEO-оптимизация и аудит</li>
+            <li>Яндекс.Метрика и аналитика</li>
+            <li>Настройка контекста и таргета</li>
+            <li>Техподдержка сайта и бота</li>
+            <li>Правки и доработки</li>
           </ul>
         </div>
 
@@ -1426,7 +1394,7 @@
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h3>Быстро</h3>
-          <p>Лендинг за 3 дня, приложение за 2 недели. Без затягивания сроков.</p>
+          <p>Лендинг за 3 дня, Telegram-бот за 2 недели. Без затягивания сроков.</p>
         </div>
         <div class="advantage-card fade-in">
           <div class="advantage-icon">
@@ -1489,53 +1457,37 @@
 
     <!-- Portfolio -->
     <section class="section" id="portfolio">
-      <h2 class="section-title fade-in">Наши <span>проекты</span></h2>
-      <p class="section-subtitle fade-in">Экосистема AI-приложений и веб-проектов</p>
+      <h2 class="section-title fade-in">Кейсы и <span>примеры</span></h2>
+      <p class="section-subtitle fade-in">Реальные проекты, которые уже работают</p>
 
       <div class="portfolio-grid">
-        <div class="portfolio-card fade-in">
-          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a3e, #2d1b69);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
-          </div>
-          <div class="portfolio-info">
-            <h3>12 AI-приложений</h3>
-            <p>Экосистема мобильных AI-приложений для повседневных задач. Flutter + FastAPI + Gemini AI. Опубликованы в RuStore.</p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag highlight">Flutter</span>
-              <span class="portfolio-tag highlight">AI</span>
-              <span class="portfolio-tag">FastAPI</span>
-              <span class="portfolio-tag">RuStore</span>
-            </div>
-          </div>
-        </div>
-
         <div class="portfolio-card fade-in">
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a2a3e, #1b4069);">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
           <div class="portfolio-info">
-            <h3>Zubcoder Apps</h3>
-            <p>Промо-сайт для экосистемы AI-приложений. Адаптивный дизайн, анимации, каталог приложений с прямыми ссылками.</p>
+            <h3>iamselfvalue.ru</h3>
+            <p>Сайт для коуча-психолога с записью на консультации, формой захвата и адаптивным дизайном. Запущен и принимает заявки.</p>
             <div class="portfolio-tags">
               <span class="portfolio-tag highlight">HTML/CSS</span>
-              <span class="portfolio-tag">Анимации</span>
               <span class="portfolio-tag">Адаптивный</span>
+              <span class="portfolio-tag">Форма захвата</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card fade-in">
-          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a3e2a, #1b6940);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a3e, #2d1b69);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
           </div>
           <div class="portfolio-info">
-            <h3>Город во Времени</h3>
-            <p>AR-приложение с исторической картой Москвы. 100 000+ фото с геопривязкой, YandexMapKit, камера с наложением.</p>
+            <h3>Zubcoder Studio — lead bot</h3>
+            <p>Telegram-бот для приёма заявок: выбор услуги, диалоговый бриф, AI-рекомендации и уведомление администратору.</p>
             <div class="portfolio-tags">
-              <span class="portfolio-tag highlight">Flutter</span>
-              <span class="portfolio-tag highlight">AR</span>
-              <span class="portfolio-tag">YandexMapKit</span>
-              <span class="portfolio-tag">GPS</span>
+              <span class="portfolio-tag highlight">Python</span>
+              <span class="portfolio-tag highlight">aiogram 3</span>
+              <span class="portfolio-tag">LLM</span>
+              <span class="portfolio-tag">Telegram API</span>
             </div>
           </div>
         </div>
@@ -1544,49 +1496,91 @@
 
     <!-- Packages -->
     <section class="section" id="packages">
-      <h2 class="section-title fade-in">Пакеты <span>услуг</span></h2>
-      <p class="section-subtitle fade-in">Выберите подходящий вариант или обсудите индивидуальный</p>
+      <h2 class="section-title fade-in">Пакеты и <span>цены</span></h2>
+      <p class="section-subtitle fade-in">Фиксируем сроки и стоимость перед стартом. Поддержка — от 10 000 ₽/мес.</p>
 
       <div class="packages-grid">
 
         <div class="package-card fade-in">
-          <div class="package-name">Старт</div>
-          <div class="package-price">от 30 000 &#8381;</div>
-          <div class="package-price-note">Идеально для начала</div>
+          <div class="package-name">Быстрый лендинг</div>
+          <div class="package-price">от 35 000 &#8381;</div>
+          <div class="package-price-note">Для быстрого запуска</div>
           <ul class="package-features">
-            <li><span class="check">+</span> Лендинг / промо-сайт</li>
+            <li><span class="check">+</span> До 5 экранов</li>
             <li><span class="check">+</span> Адаптивный дизайн</li>
-            <li><span class="check">+</span> SEO-основа</li>
-            <li><span class="check">+</span> SSL-сертификат</li>
-            <li><span class="check">+</span> Срок: 3-5 дней</li>
+            <li><span class="check">+</span> Форма заявки</li>
+            <li><span class="check">+</span> SEO-основа и Метрика</li>
+            <li><span class="check">+</span> Срок: 3–5 дней</li>
           </ul>
           <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
         </div>
 
         <div class="package-card featured fade-in">
-          <div class="package-name">Бизнес</div>
-          <div class="package-price">от 80 000 &#8381;</div>
-          <div class="package-price-note">Сайт + бот + продвижение</div>
+          <div class="package-name">Лендинг под ключ</div>
+          <div class="package-price">от 60 000 &#8381;</div>
+          <div class="package-price-note">Популярный выбор</div>
           <ul class="package-features">
-            <li><span class="check">+</span> Многостраничный сайт</li>
-            <li><span class="check">+</span> Telegram-бот</li>
-            <li><span class="check">+</span> Базовое SEO-продвижение</li>
-            <li><span class="check">+</span> Аналитика (Яндекс.Метрика)</li>
-            <li><span class="check">+</span> Срок: 2-3 недели</li>
+            <li><span class="check">+</span> До 10 экранов</li>
+            <li><span class="check">+</span> Уникальный дизайн</li>
+            <li><span class="check">+</span> Продающий текст</li>
+            <li><span class="check">+</span> Форма + мессенджеры</li>
+            <li><span class="check">+</span> Срок: 5–10 дней</li>
           </ul>
           <a href="#contact" class="package-btn package-btn-primary">Заказать</a>
         </div>
 
         <div class="package-card fade-in">
-          <div class="package-name">Премиум</div>
-          <div class="package-price">от 200 000 &#8381;</div>
-          <div class="package-price-note">Полная экосистема</div>
+          <div class="package-name">Многостраничный сайт</div>
+          <div class="package-price">от 120 000 &#8381;</div>
+          <div class="package-price-note">Для бизнеса и экспертов</div>
           <ul class="package-features">
-            <li><span class="check">+</span> Сайт + мобильное приложение</li>
-            <li><span class="check">+</span> Telegram-бот с AI</li>
-            <li><span class="check">+</span> Продвижение и реклама</li>
-            <li><span class="check">+</span> Брендинг и дизайн</li>
-            <li><span class="check">+</span> 3 месяца поддержки</li>
+            <li><span class="check">+</span> До 10 страниц</li>
+            <li><span class="check">+</span> Каталог / услуги / блог</li>
+            <li><span class="check">+</span> Админ-панель по запросу</li>
+            <li><span class="check">+</span> SEO и аналитика</li>
+            <li><span class="check">+</span> Срок: 2–4 недели</li>
+          </ul>
+          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
+        </div>
+
+        <div class="package-card fade-in">
+          <div class="package-name">Telegram-бот для продаж</div>
+          <div class="package-price">от 100 000 &#8381;</div>
+          <div class="package-price-note">Каталог + заявки + уведомления</div>
+          <ul class="package-features">
+            <li><span class="check">+</span> Каталог товаров/услуг</li>
+            <li><span class="check">+</span> Корзина и оформление</li>
+            <li><span class="check">+</span> Оплата и уведомления</li>
+            <li><span class="check">+</span> Интеграция с CRM/1С</li>
+            <li><span class="check">+</span> Срок: 2–3 недели</li>
+          </ul>
+          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
+        </div>
+
+        <div class="package-card fade-in">
+          <div class="package-name">AI-ассистент</div>
+          <div class="package-price">от 150 000 &#8381;</div>
+          <div class="package-price-note">Умный диалог с клиентом</div>
+          <ul class="package-features">
+            <li><span class="check">+</span> База знаний под проект</li>
+            <li><span class="check">+</span> GPT / Claude / YandexGPT</li>
+            <li><span class="check">+</span> Сбор заявки и контакта</li>
+            <li><span class="check">+</span> Интеграции и уведомления</li>
+            <li><span class="check">+</span> Срок: 3–6 недель</li>
+          </ul>
+          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
+        </div>
+
+        <div class="package-card fade-in">
+          <div class="package-name">3D-дизайн и фирменные фоны</div>
+          <div class="package-price">от 35 000 &#8381;</div>
+          <div class="package-price-note">Объёмный hero, анимация, бренд</div>
+          <ul class="package-features">
+            <li><span class="check">+</span> Объёмный hero-секция</li>
+            <li><span class="check">+</span> CSS / Spline / 3D-ассеты</li>
+            <li><span class="check">+</span> Анимации и микровзаимодействия</li>
+            <li><span class="check">+</span> Кастомный WebGL/Three.js — от 100 000 ₽</li>
+            <li><span class="check">+</span> Срок: 3–7 дней</li>
           </ul>
           <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
         </div>
@@ -1599,17 +1593,17 @@
       <h2 class="section-title fade-in">Наш <span>стек</span></h2>
       <p class="section-subtitle fade-in">Современные технологии для надёжных решений</p>
       <div class="tech-grid fade-in">
-        <div class="tech-item">Flutter</div>
-        <div class="tech-item">Dart</div>
         <div class="tech-item">Python</div>
         <div class="tech-item">FastAPI</div>
         <div class="tech-item">HTML / CSS / JS</div>
         <div class="tech-item">React</div>
+        <div class="tech-item">Next.js</div>
         <div class="tech-item">Node.js</div>
         <div class="tech-item">Docker</div>
         <div class="tech-item">PostgreSQL</div>
-        <div class="tech-item">Firebase</div>
+        <div class="tech-item">Three.js / WebGL</div>
         <div class="tech-item">Gemini AI</div>
+        <div class="tech-item">OpenAI API</div>
         <div class="tech-item">Telegram Bot API</div>
         <div class="tech-item">Яндекс.Облако</div>
         <div class="tech-item">GitHub Actions</div>
@@ -1622,13 +1616,9 @@
       <h2>Готовы начать проект?</h2>
       <p>Расскажите о вашей идее — мы предложим лучшее решение. Консультация бесплатно.</p>
       <div class="cta-contacts">
-        <a href="https://t.me/zubcoder" class="cta-contact-btn cta-telegram" target="_blank" rel="noopener">
+        <a href="https://t.me/Zubcoder_Studio_bot" class="cta-contact-btn cta-telegram" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Telegram
-        </a>
-        <a href="https://wa.me/79991234567" class="cta-contact-btn cta-whatsapp" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
+          Telegram-бот
         </a>
         <a href="mailto:zubcoder.app@yandex.ru" class="cta-contact-btn cta-email">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -1658,13 +1648,14 @@
           <div class="form-group">
             <label>Что вас интересует?</label>
             <select name="service">
-              <option value="">Выберите услугу</option>
-              <option value="website">Веб-разработка</option>
-              <option value="mobile">Мобильное приложение</option>
-              <option value="telegram">Telegram-бот</option>
-              <option value="promotion">Продвижение и реклама</option>
-              <option value="design">Дизайн и брендинг</option>
-              <option value="complex">Комплексное решение</option>
+              <option value="">Выберите пакет</option>
+              <option value="landing">Быстрый лендинг / Лендинг под ключ</option>
+              <option value="website">Многостраничный сайт</option>
+              <option value="telegram">Telegram-бот для продаж</option>
+              <option value="ai">AI-ассистент</option>
+              <option value="3d">3D-дизайн / фирменные фоны</option>
+              <option value="support">Поддержка / продвижение</option>
+              <option value="complex">Комплексный проект</option>
             </select>
           </div>
           <div class="form-group">
@@ -1703,7 +1694,6 @@
   <footer>
     <div class="container">
       <div class="footer-links">
-        <a href="https://zubcoder-apps.ru" target="_blank">Zubcoder Apps</a>
         <a href="privacy.html">Политика конфиденциальности</a>
         <a href="terms.html">Пользовательское соглашение</a>
       </div>
@@ -1828,12 +1818,13 @@
       const description = data.get('description');
 
       const serviceNames = {
-        'website': 'Веб-разработка',
-        'mobile': 'Мобильное приложение',
-        'telegram': 'Telegram-бот',
-        'promotion': 'Продвижение и реклама',
-        'design': 'Дизайн и брендинг',
-        'complex': 'Комплексное решение'
+        'landing': 'Быстрый лендинг / Лендинг под ключ',
+        'website': 'Многостраничный сайт',
+        'telegram': 'Telegram-бот для продаж',
+        'ai': 'AI-ассистент',
+        '3d': '3D-дизайн / фирменные фоны',
+        'support': 'Поддержка / продвижение',
+        'complex': 'Комплексный проект'
       };
 
       const subject = encodeURIComponent('Заявка с сайта Zubcoder Studio — ' + (serviceNames[service] || 'Общий запрос'));

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zubcoder-studio.ru/sitemap.xml
