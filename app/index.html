@@ -208,7 +208,6 @@
     const totalNode = document.getElementById('total');
     const optionInputs = [...form.querySelectorAll('input')];
     const packageInputs = [...form.querySelectorAll('input[name="package"]')];
-    const optionKeyOrder = ['pay', 'cat', 'book', 'mail', 'game', 'copy'];
 
     function selectedPackage() {
       const input = packageInputs.find(item => item.checked);
@@ -231,24 +230,9 @@
       totalNode.textContent = 'Итого: от ' + formatPrice(total()) + ' ₽';
     }
 
-    function base64url(value) {
-      const bytes = new TextEncoder().encode(value);
-      let binary = '';
-      bytes.forEach(byte => binary += String.fromCharCode(byte));
-      return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-    }
-
     function makePayload() {
-      const pack = selectedPackage();
-      const options = selectedOptions().map(item => item.value);
-      const requested = { p: pack.key, o: options, t: total() };
-      let encoded = base64url(JSON.stringify(requested));
-      if (('app_' + encoded).length > 64) {
-        const compact = { p: pack.key, o: options.map(key => optionKeyOrder.indexOf(key)), t: total() };
-        encoded = base64url(JSON.stringify(compact));
-      }
-      if (('app_' + encoded).length > 64) throw new Error('Payload exceeds Telegram limit');
-      return 'app_' + encoded;
+      const options = selectedOptions().map(item => item.value).join('.') || 'none';
+      return 'app_' + selectedPackage().key + '-' + options + '-' + total();
     }
 
     function sendRequest(event) {
