@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zubcoder Studio — Сайты, Telegram-боты и AI-ассистенты для бизнеса</title>
-  <meta name="description" content="Zubcoder Studio — создаём сайты, Telegram-ботов и AI-ассистентов для экспертов, коучей и малого бизнеса. От идеи до запуска.">
-  <meta name="keywords" content="разработка сайтов, Telegram-боты, AI-ассистенты, 3D-дизайн, веб-студия, Zubcoder">
-  <meta property="og:title" content="Zubcoder Studio — Сайты, Telegram-боты и AI-ассистенты">
-  <meta property="og:description" content="Создаём сайты, Telegram-ботов и AI-ассистентов для экспертов и бизнеса. От идеи до запуска.">
+  <title>Zubcoder Studio — сайт и Telegram-бот, которые продают за вас</title>
+  <meta name="description" content="Клиент приходит по рекламе на лендинг, бот бесплатно выдаёт гайд, прогревает и доводит до оплаты — пока вы занимаетесь делом, а не перепиской.">
+  <meta name="keywords" content="лендинг, Telegram-бот, Mini App, заявки, продажи, Zubcoder Studio">
+  <meta property="og:title" content="Zubcoder Studio — сайт и Telegram-бот, которые продают за вас">
+  <meta property="og:description" content="Клиент приходит по рекламе на лендинг, бот бесплатно выдаёт гайд, прогревает и доводит до оплаты — пока вы занимаетесь делом, а не перепиской.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -364,7 +364,7 @@
     /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
@@ -845,7 +845,7 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 40px 0 100px;
+      padding: 40px 0;
       border-top: 1px solid var(--border);
       color: var(--text-secondary);
       font-size: 13px;
@@ -1246,9 +1246,203 @@
     @keyframes blink {
       50% { opacity: 0; }
     }
+
+    .benefit {
+      margin-top: 28px;
+      padding: 18px 22px;
+      border: 1px solid rgba(0, 206, 201, 0.25);
+      border-left: 4px solid var(--gradient-2);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.14), rgba(0, 206, 201, 0.08));
+      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto 40px;
+    }
+
+    .problem-list,
+    .audience-list,
+    .process-list {
+      display: grid;
+      gap: 14px;
+      list-style: none;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .problem-list li,
+    .audience-list li,
+    .process-list li {
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .problem-list li::before {
+      content: '•';
+      color: var(--gradient-3);
+      font-size: 22px;
+      line-height: 0;
+      margin-right: 12px;
+      vertical-align: -2px;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .solution-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 26px;
+    }
+
+    .solution-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .solution-card p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .solution-card .benefit {
+      margin-top: auto;
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+
+    .audience-list li {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+    }
+
+    .audience-list li::before {
+      content: '→';
+      color: var(--gradient-2);
+      font-weight: 800;
+    }
+
+    .portfolio-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .portfolio-card a:hover {
+      color: var(--accent-light);
+    }
+
+    .packages-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--bg-card);
+    }
+
+    .packages-table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .packages-table th,
+    .packages-table td {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .packages-table th {
+      color: var(--accent-light);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .packages-table td {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .packages-table td:first-child,
+    .packages-table td:last-child {
+      color: var(--text-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .packages-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .support-note {
+      margin: 28px auto 0;
+      max-width: 820px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .support-price {
+      display: inline-block;
+      color: var(--text-primary);
+      font-size: 1.45em;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .case-preview-1 {
+      background: linear-gradient(135deg, #1a2a3e, #1b4069);
+    }
+
+    .case-preview-2 {
+      background: linear-gradient(135deg, #1a1a3e, #2d1b69);
+    }
+
+    .case-preview-3 {
+      background: linear-gradient(135deg, #1a3e2a, #1b6940);
+    }
+
+    @media (max-width: 768px) {
+      .solution-grid { grid-template-columns: 1fr; }
+      .packages-table th, .packages-table td { padding: 16px; }
+    }
   </style>
 
-  <!-- Yandex.Metrika counter (замените null на ID счётчика) -->
+  <!-- Yandex.Metrika counter -->
   <script>
     window.ZUBCODER_METRIKA_ID = 112362513;
     (function (m, e, t, r, i, k, a) {
@@ -1258,427 +1452,153 @@
       k = e.createElement(t), a = e.getElementsByTagName(t)[0];
       k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
     })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
     if (window.ZUBCODER_METRIKA_ID) {
       ym(window.ZUBCODER_METRIKA_ID, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
     }
   </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/0" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-</head>
-<body>
+</head><body>
   <div class="bg-effects"></div>
 
-  <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#top" class="nav-logo">
         <img class="nav-logo-icon" src="logo.png" alt="Zubcoder Studio">
         <div class="nav-logo-text">Zubcoder <span>Studio</span></div>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#advantages">Преимущества</a></li>
-        <li><a href="#process">Как мы работаем</a></li>
-        <li><a href="#portfolio">Портфолио</a></li>
+        <li><a href="#problem">Проблема</a></li>
+        <li><a href="#solution">Решение</a></li>
+        <li><a href="#audience">Кому подходит</a></li>
+        <li><a href="#cases">Кейсы</a></li>
         <li><a href="#packages">Пакеты</a></li>
-        <li><a href="#contact">Контакты</a></li>
+        <li><a href="#process">Как это происходит</a></li>
       </ul>
-      <a href="#contact" class="nav-cta nav-cta-desktop">Обсудить проект</a>
-      <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a href="https://t.me/Zubcoder_Studio_bot" class="nav-cta nav-cta-desktop" target="_blank" rel="noopener">В Telegram</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Открыть меню" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div class="container">
-
-    <!-- Hero -->
+  <main id="top" class="container">
     <section class="hero">
       <img src="logo.png" alt="Zubcoder Studio" class="hero-logo">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Принимаем заказы
-      </div>
-      <h1>Сайты, Telegram-боты и AI-ассистенты для экспертов и бизнеса</h1>
-      <p>
-        От идеи до запуска. Сайты с объёмным дизайном, боты для продаж и AI-помощники под ключ.
-      </p>
-      <div class="hero-buttons">
-        <a href="https://t.me/Zubcoder_Studio_bot" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
-        <a href="#packages" class="btn-secondary">Посмотреть пакеты</a>
-      </div>
-    </section>
-
-
-
-    <!-- Services -->
-    <section class="section" id="services">
-      <h2 class="section-title fade-in">Наши <span>услуги</span></h2>
-      <p class="section-subtitle fade-in">Сайты, боты, AI-ассистенты и визуальный дизайн для экспертов и бизнеса</p>
-
-      <div class="services-grid">
-
-        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #6c5ce7, #a29bfe); --icon-bg: rgba(108,92,231,0.12);">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>Веб-разработка</h3>
-          <p>Современные сайты под ключ — от лендингов до многостраничных веб-приложений.</p>
-          <ul class="service-features">
-            <li>Лендинги и промо-сайты</li>
-            <li>Многостраничные сайты</li>
-            <li>Адаптивная вёрстка</li>
-            <li>SEO-заготовки и Метрика</li>
-            <li>Формы и интеграции</li>
-          </ul>
-        </div>
-
-        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #0088cc, #00aaee); --icon-bg: rgba(0,136,204,0.12);">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0088cc" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          </div>
-          <h3>Telegram-боты и AI-ассистенты</h3>
-          <p>Боты для продаж, заявок и поддержки — включая AI-ассистентов с базой знаний.</p>
-          <ul class="service-features">
-            <li>Боты для продаж и заявок</li>
-            <li>AI-ассистенты (GPT / Claude / YandexGPT)</li>
-            <li>Интеграция с CRM и 1С</li>
-            <li>Каталог, корзина, оплата</li>
-            <li>Уведомления администратору</li>
-          </ul>
-        </div>
-
-        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #fdcb6e, #f39c12); --icon-bg: rgba(253,203,110,0.12);">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fdcb6e" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3>3D-дизайн и визуальные фирменные фоны</h3>
-          <p>Объёмный hero, фирменные фоны, 3D-элементы и анимация для запоминающегося сайта.</p>
-          <ul class="service-features">
-            <li>Объёмный hero и градиентные фоны</li>
-            <li>3D-элементы (CSS / Spline / Three.js)</li>
-            <li>Анимации и микровзаимодействия</li>
-            <li>Брендовое видео и кружки</li>
-            <li>UI/UX и прототипы в Figma</li>
-          </ul>
-        </div>
-
-        <div class="service-card fade-in" style="--card-accent: linear-gradient(135deg, #00b894, #55efc4); --icon-bg: rgba(0,184,148,0.12);">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          </div>
-          <h3>Продвижение и поддержка</h3>
-          <p>SEO, аналитика, настройка рекламы и техническая поддержка сайтов и ботов.</p>
-          <ul class="service-features">
-            <li>SEO-оптимизация и аудит</li>
-            <li>Яндекс.Метрика и аналитика</li>
-            <li>Настройка контекста и таргета</li>
-            <li>Техподдержка сайта и бота</li>
-            <li>Правки и доработки</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Advantages -->
-    <section class="section" id="advantages">
-      <h2 class="section-title fade-in">Почему <span>мы</span></h2>
-      <p class="section-subtitle fade-in">Реальный опыт, проверенные технологии, индивидуальный подход</p>
-
-      <div class="advantages-grid">
-        <div class="advantage-card fade-in">
-          <div class="advantage-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Быстро</h3>
-          <p>Лендинг за 3 дня, Telegram-бот за 2 недели. Без затягивания сроков.</p>
-        </div>
-        <div class="advantage-card fade-in">
-          <div class="advantage-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Надёжно</h3>
-          <p>Код на современном стеке. Серверы в России. Гарантия 3 месяца.</p>
-        </div>
-        <div class="advantage-card fade-in">
-          <div class="advantage-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>Под ключ</h3>
-          <p>От дизайна до продвижения. Не нужно искать других подрядчиков.</p>
-        </div>
-        <div class="advantage-card fade-in">
-          <div class="advantage-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fdcb6e" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h3>AI-технологии</h3>
-          <p>Интегрируем нейросети и ИИ в ваши продукты для конкурентного преимущества.</p>
+      <div class="hero-copy">
+        <h1>Сайт и Telegram-бот, которые продают за вас — за 7 дней</h1>
+        <p>Клиент приходит по рекламе на лендинг, бот бесплатно выдаёт гайд, прогревает и доводит до оплаты — пока вы занимаетесь делом, а не перепиской.</p>
+        <div class="hero-buttons">
+          <a href="https://t.me/Zubcoder_Studio_bot" class="btn-primary" target="_blank" rel="noopener">Рассчитать мой проект</a>
         </div>
       </div>
     </section>
 
-    <!-- Process -->
-    <section class="section" id="process">
-      <h2 class="section-title fade-in">Как мы <span>работаем</span></h2>
-      <p class="section-subtitle fade-in">Прозрачный процесс от первого звонка до запуска</p>
-
-      <div class="process-steps fade-in">
-        <div class="process-line"></div>
-        <div class="process-step">
-          <div class="step-number">1</div>
-          <h3>Бриф</h3>
-          <p>Обсуждаем задачу, цели и бюджет. Бесплатная консультация.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">2</div>
-          <h3>Концепция</h3>
-          <p>Прототип, дизайн-макет и техническое задание.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">3</div>
-          <h3>Разработка</h3>
-          <p>Пишем код, показываем промежуточные результаты.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">4</div>
-          <h3>Тестирование</h3>
-          <p>QA, исправление багов, финальные правки.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">5</div>
-          <h3>Запуск</h3>
-          <p>Деплой, публикация, настройка аналитики.</p>
-        </div>
-      </div>
+    <section class="section" id="problem">
+      <h2 class="section-title fade-in">Клиенты пишут «сколько стоит?» — и пропадают</h2>
+      <ul class="problem-list fade-in">
+        <li>Вы отвечаете каждому вручную, вечером, уставший</li>
+        <li>Пока отвечали — клиент ушёл к тому, кто ответил за минуту</li>
+        <li>Сайт есть, а заявок с него нет — это просто визитка</li>
+      </ul>
+      <p class="benefit fade-in">Бот отвечает мгновенно, в любое время, и не забывает дожать.</p>
     </section>
 
-    <!-- Portfolio -->
-    <section class="section" id="portfolio">
-      <h2 class="section-title fade-in">Кейсы и <span>примеры</span></h2>
-      <p class="section-subtitle fade-in">Реальные проекты, которые уже работают</p>
+    <section class="section" id="solution">
+      <h2 class="section-title fade-in">Один клиентский путь — три инструмента</h2>
+      <div class="solution-grid">
+        <article class="solution-card fade-in">
+          <span class="solution-number">1</span>
+          <p>1. Лендинг. Одна страница, где всё понятно за 30 секунд: что вы делаете, кому, сколько стоит, куда нажать. Сюда ведёт реклама и ссылки из соцсетей.</p>
+          <p class="benefit">Клиент не потеряется и не уйдёт «почитать дальше».</p>
+        </article>
+        <article class="solution-card fade-in">
+          <span class="solution-number">2</span>
+          <p>2. Бот-продавец. Встречает клиента в Telegram, выдаёт бесплатный материал (гайд, чек-лист, расчёт), отвечает на типовые вопросы, мягко доводит до заявки или оплаты.</p>
+          <p class="benefit">Вы получаете готовую заявку, а не сырые вопросы.</p>
+        </article>
+        <article class="solution-card fade-in">
+          <span class="solution-number">3</span>
+          <p>3. Mini App. Мини-приложение прямо внутри Telegram: каталог, запись, игра-вовлечение. Открывается в один тап, ничего скачивать не надо.</p>
+          <p class="benefit">Клиент остаётся в привычном Telegram — конверсия выше, чем у сайта.</p>
+        </article>
+      </div>
+      <p class="benefit fade-in">По отдельности это «сайтик и ботик». Вместе — продавец, который работает 24/7 и не просит зарплату.</p>
+    </section>
 
+    <section class="section" id="audience">
+      <h2 class="section-title fade-in">Если у вас есть услуга — связка окупится</h2>
+      <ul class="audience-list fade-in">
+        <li>Салоны, барбершопы, мастера — запись и напоминания без администратора</li>
+        <li>Репетиторы, коучи, школы — бесплатный гайд → запись на пробное занятие</li>
+        <li>Доставка и курьерские службы — приём заказов без оператора</li>
+        <li>Магазины — каталог и оплата прямо в Telegram</li>
+        <li>Эксперты и консультанты — воронка «гайд → диагностика → продажа консультации»</li>
+      </ul>
+      <p class="benefit fade-in">Если ваш клиент уже сидит в Telegram — ему не нужно никуда уходить, чтобы заплатить вам.</p>
+    </section>
+
+    <section class="section" id="cases">
+      <h2 class="section-title fade-in">Не «у нас есть портфолио», а «потрогайте сами»</h2>
       <div class="portfolio-grid">
-        <div class="portfolio-card fade-in">
-          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a2a3e, #1b4069);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00cec9" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
+        <article class="portfolio-card fade-in">
+          <div class="portfolio-preview case-preview-1">◈</div>
           <div class="portfolio-info">
-            <h3>iamselfvalue.ru</h3>
-            <p>Сайт для коуча-психолога с записью на консультации, формой захвата и адаптивным дизайном. Запущен и принимает заявки.</p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag highlight">HTML/CSS</span>
-              <span class="portfolio-tag">Адаптивный</span>
-              <span class="portfolio-tag">Форма захвата</span>
-            </div>
+            <p><a href="https://iamselfvalue.ru" target="_blank" rel="noopener">iamselfvalue.ru — лендинг коуч-практики: вот так может выглядеть и ваш сайт</a></p>
           </div>
-        </div>
-
-        <div class="portfolio-card fade-in">
-          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a3e, #2d1b69);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          </div>
+        </article>
+        <article class="portfolio-card fade-in">
+          <div class="portfolio-preview case-preview-2">✦</div>
           <div class="portfolio-info">
-            <h3>Zubcoder Studio — lead bot</h3>
-            <p>Telegram-бот для приёма заявок: выбор услуги, диалоговый бриф, AI-рекомендации и уведомление администратору.</p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag highlight">Python</span>
-              <span class="portfolio-tag highlight">aiogram 3</span>
-              <span class="portfolio-tag">LLM</span>
-              <span class="portfolio-tag">Telegram API</span>
-            </div>
+            <p><a href="https://t.me/Zubcoder_Studio_bot" target="_blank" rel="noopener">Этот бот — прямо сейчас вы проходите ту самую воронку: гайд → бриф → заявка. Вы сами — живой пример того, как это работает</a></p>
           </div>
-        </div>
+        </article>
+        <article class="portfolio-card fade-in">
+          <div class="portfolio-preview case-preview-3">✹</div>
+          <div class="portfolio-info">
+            <p><a href="https://t.me/Zubcoder_Studio_bot?start=app" target="_blank" rel="noopener">Игра в Telegram — мини-игра для вовлечения аудитории: её можно перекрасить под любой бренд</a></p>
+          </div>
+        </article>
       </div>
+      <p class="benefit fade-in">Самое сильное доказательство — клиент уже внутри вашей воронки и это видит.</p>
     </section>
 
-    <!-- Packages -->
     <section class="section" id="packages">
-      <h2 class="section-title fade-in">Пакеты и <span>цены</span></h2>
-      <p class="section-subtitle fade-in">Фиксируем сроки и стоимость перед стартом. Поддержка — от 10 000 ₽/мес.</p>
-
-      <div class="packages-grid">
-
-        <div class="package-card fade-in">
-          <div class="package-name">Быстрый лендинг</div>
-          <div class="package-price">от 35 000 &#8381;</div>
-          <div class="package-price-note">Для быстрого запуска</div>
-          <ul class="package-features">
-            <li><span class="check">+</span> До 5 экранов</li>
-            <li><span class="check">+</span> Адаптивный дизайн</li>
-            <li><span class="check">+</span> Форма заявки</li>
-            <li><span class="check">+</span> SEO-основа и Метрика</li>
-            <li><span class="check">+</span> Срок: 3–5 дней</li>
-          </ul>
-          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
-        </div>
-
-        <div class="package-card featured fade-in">
-          <div class="package-name">Лендинг под ключ</div>
-          <div class="package-price">от 60 000 &#8381;</div>
-          <div class="package-price-note">Популярный выбор</div>
-          <ul class="package-features">
-            <li><span class="check">+</span> До 10 экранов</li>
-            <li><span class="check">+</span> Уникальный дизайн</li>
-            <li><span class="check">+</span> Продающий текст</li>
-            <li><span class="check">+</span> Форма + мессенджеры</li>
-            <li><span class="check">+</span> Срок: 5–10 дней</li>
-          </ul>
-          <a href="#contact" class="package-btn package-btn-primary">Заказать</a>
-        </div>
-
-        <div class="package-card fade-in">
-          <div class="package-name">Многостраничный сайт</div>
-          <div class="package-price">от 120 000 &#8381;</div>
-          <div class="package-price-note">Для бизнеса и экспертов</div>
-          <ul class="package-features">
-            <li><span class="check">+</span> До 10 страниц</li>
-            <li><span class="check">+</span> Каталог / услуги / блог</li>
-            <li><span class="check">+</span> Админ-панель по запросу</li>
-            <li><span class="check">+</span> SEO и аналитика</li>
-            <li><span class="check">+</span> Срок: 2–4 недели</li>
-          </ul>
-          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
-        </div>
-
-        <div class="package-card fade-in">
-          <div class="package-name">Telegram-бот для продаж</div>
-          <div class="package-price">от 100 000 &#8381;</div>
-          <div class="package-price-note">Каталог + заявки + уведомления</div>
-          <ul class="package-features">
-            <li><span class="check">+</span> Каталог товаров/услуг</li>
-            <li><span class="check">+</span> Корзина и оформление</li>
-            <li><span class="check">+</span> Оплата и уведомления</li>
-            <li><span class="check">+</span> Интеграция с CRM/1С</li>
-            <li><span class="check">+</span> Срок: 2–3 недели</li>
-          </ul>
-          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
-        </div>
-
-        <div class="package-card fade-in">
-          <div class="package-name">AI-ассистент</div>
-          <div class="package-price">от 150 000 &#8381;</div>
-          <div class="package-price-note">Умный диалог с клиентом</div>
-          <ul class="package-features">
-            <li><span class="check">+</span> База знаний под проект</li>
-            <li><span class="check">+</span> GPT / Claude / YandexGPT</li>
-            <li><span class="check">+</span> Сбор заявки и контакта</li>
-            <li><span class="check">+</span> Интеграции и уведомления</li>
-            <li><span class="check">+</span> Срок: 3–6 недель</li>
-          </ul>
-          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
-        </div>
-
-        <div class="package-card fade-in">
-          <div class="package-name">3D-дизайн и фирменные фоны</div>
-          <div class="package-price">от 35 000 &#8381;</div>
-          <div class="package-price-note">Объёмный hero, анимация, бренд</div>
-          <ul class="package-features">
-            <li><span class="check">+</span> Объёмный hero-секция</li>
-            <li><span class="check">+</span> CSS / Spline / 3D-ассеты</li>
-            <li><span class="check">+</span> Анимации и микровзаимодействия</li>
-            <li><span class="check">+</span> Кастомный WebGL/Three.js — от 100 000 ₽</li>
-            <li><span class="check">+</span> Срок: 3–7 дней</li>
-          </ul>
-          <a href="#contact" class="package-btn package-btn-secondary">Заказать</a>
-        </div>
-
+      <h2 class="section-title fade-in">Честные цены — как у фрилансера, качество — как у студии</h2>
+      <div class="packages-table-wrap fade-in">
+        <table class="packages-table">
+          <thead><tr><th>Пакет</th><th>Что входит</th><th>Для кого</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td>Старт</td><td>Лендинг-одностраничник, тексты, кнопка в Telegram</td><td>Начать продавать быстро</td><td>от 5 000 ₽</td></tr>
+            <tr><td>Продажи</td><td>Лендинг + бот: гайд, прогрев, заявка/оплата</td><td>Есть услуга, нужны заявки</td><td>от 12 000 ₽</td></tr>
+            <tr><td>Максимум</td><td>Всё выше + Mini App (каталог, запись, игра)</td><td>Нужна автоматизация под ключ</td><td>от 25 000 ₽</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p class="support-note fade-in">Первый месяц поддержки — бесплатно. Дальше — <strong class="support-price">от 3 000 ₽/мес:</strong> доработки, тексты бота, контроль работы. Вам не нужен технарь в штате.</p>
     </section>
 
-    <!-- Technologies -->
-    <section class="section">
-      <h2 class="section-title fade-in">Наш <span>стек</span></h2>
-      <p class="section-subtitle fade-in">Современные технологии для надёжных решений</p>
-      <div class="tech-grid fade-in">
-        <div class="tech-item">Python</div>
-        <div class="tech-item">FastAPI</div>
-        <div class="tech-item">HTML / CSS / JS</div>
-        <div class="tech-item">React</div>
-        <div class="tech-item">Next.js</div>
-        <div class="tech-item">Node.js</div>
-        <div class="tech-item">Docker</div>
-        <div class="tech-item">PostgreSQL</div>
-        <div class="tech-item">Three.js / WebGL</div>
-        <div class="tech-item">Gemini AI</div>
-        <div class="tech-item">OpenAI API</div>
-        <div class="tech-item">Telegram Bot API</div>
-        <div class="tech-item">Яндекс.Облако</div>
-        <div class="tech-item">GitHub Actions</div>
-        <div class="tech-item">Figma</div>
-      </div>
+    <section class="section" id="process">
+      <h2 class="section-title fade-in">Три шага до первой заявки</h2>
+      <ol class="process-list fade-in">
+        <li>Пишете в бота — он сам спросит всё нужное за 5 минут, без созвонов</li>
+        <li>Через 3–7 дней — показываю готовое на тесте, правки вносим вместе</li>
+        <li>Запускаем — бот и сайт работают на моём сервере, вы получаете заявки</li>
+      </ol>
+      <p class="benefit fade-in">От «пишу вам» до «бот продаёт» — неделя, не месяц.</p>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section fade-in" id="contact">
-      <h2>Готовы начать проект?</h2>
-      <p>Расскажите о вашей идее — мы предложим лучшее решение. Консультация бесплатно.</p>
+      <h2>Один привлечённый клиент обычно окупает всю связку</h2>
+      <p>Нажмите кнопку — бот задаст 5 вопросов и пришлёт расчёт под вашу задачу. Это займёт 2 минуты и ни к чему не обязывает.</p>
       <div class="cta-contacts">
-        <a href="https://t.me/Zubcoder_Studio_bot" class="cta-contact-btn cta-telegram" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Telegram-бот
-        </a>
-        <a href="mailto:zubcoder.app@yandex.ru" class="cta-contact-btn cta-email">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email
-        </a>
+        <a href="https://t.me/Zubcoder_Studio_bot" class="cta-contact-btn cta-telegram" target="_blank" rel="noopener">Получить расчёт за 2 минуты</a>
       </div>
     </section>
+  </main>
 
-  </div>
-
-  <!-- Contact Modal -->
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-      <div id="contactForm">
-        <h2>Обсудить проект</h2>
-        <p class="modal-subtitle">Заполните форму — мы свяжемся в течение 2 часов</p>
-        <form id="briefForm" onsubmit="submitForm(event)">
-          <div class="form-group">
-            <label>Ваше имя *</label>
-            <input type="text" name="name" required placeholder="Как к вам обращаться?">
-          </div>
-          <div class="form-group">
-            <label>Телефон или Telegram *</label>
-            <input type="text" name="contact" required placeholder="+7 (999) 123-45-67 или @username">
-          </div>
-          <div class="form-group">
-            <label>Что вас интересует?</label>
-            <select name="service">
-              <option value="">Выберите пакет</option>
-              <option value="landing">Быстрый лендинг / Лендинг под ключ</option>
-              <option value="website">Многостраничный сайт</option>
-              <option value="telegram">Telegram-бот для продаж</option>
-              <option value="ai">AI-ассистент</option>
-              <option value="3d">3D-дизайн / фирменные фоны</option>
-              <option value="support">Поддержка / продвижение</option>
-              <option value="complex">Комплексный проект</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Расскажите о проекте</label>
-            <textarea name="description" placeholder="Опишите вашу идею, задачи и пожелания..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Отправить заявку</button>
-        </form>
-      </div>
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">&#10003;</div>
-        <h3>Заявка отправлена!</h3>
-        <p>Мы свяжемся с вами в ближайшее время.<br>Спасибо за интерес к Zubcoder Studio!</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll to top -->
-  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <button type="button" class="scroll-top" id="scrollTop" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <!-- Cookie banner -->
   <div class="cookie-banner" id="cookieBanner">
     <div class="cookie-inner">
       <div class="cookie-text">
@@ -1686,14 +1606,15 @@
         Продолжая использовать сайт, вы соглашаетесь с
         <a href="privacy.html">Политикой конфиденциальности</a>.
       </div>
-      <button class="cookie-btn" onclick="acceptCookies()">Принять</button>
+      <button type="button" class="cookie-btn" onclick="acceptCookies()">Принять</button>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-links">
+        <a href="https://zubcoder-apps.ru" target="_blank" rel="noopener">Zubcoder Apps</a>
+        <a href="https://t.me/Zubcoder_Studio_bot" target="_blank" rel="noopener">Telegram</a>
         <a href="privacy.html">Политика конфиденциальности</a>
         <a href="terms.html">Пользовательское соглашение</a>
       </div>
@@ -1704,190 +1625,33 @@
   </footer>
 
   <script>
-    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
-      });
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active'));
     });
 
-    // Navbar background + scroll to top + active nav link
     const sections = document.querySelectorAll('section[id]');
-    const navLinksAll = document.querySelectorAll('.nav-links a');
-
+    const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      const scrollTop = document.getElementById('scrollTop');
-
-      // Nav background
-      nav.style.background = window.scrollY > 50
-        ? 'rgba(10, 10, 26, 0.95)'
-        : 'rgba(10, 10, 26, 0.85)';
-
-      // Scroll to top button
-      scrollTop.classList.toggle('visible', window.scrollY > 500);
-
-      // Active nav link
+      document.querySelector('nav').style.background = window.scrollY > 50 ? 'rgba(10, 10, 26, 0.95)' : 'rgba(10, 10, 26, 0.85)';
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
       let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) current = section.id;
-      });
-      navLinksAll.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
+      sections.forEach(section => { if (window.scrollY >= section.offsetTop - 120) current = section.id; });
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current));
     });
 
-    // Animated counters
-    function animateCounter(el, target, suffix) {
-      let start = 0;
-      const duration = 2000;
-      const startTime = performance.now();
-
-      function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const value = Math.round(eased * target);
-        el.textContent = value + suffix;
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.counted) {
-          entry.target.dataset.counted = 'true';
-          const counters = entry.target.querySelectorAll('.stat-number[data-count]');
-          counters.forEach(c => {
-            animateCounter(c, parseInt(c.dataset.count), c.dataset.suffix || '');
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const statsBar = document.querySelector('.stats-bar');
-    if (statsBar) statsObserver.observe(statsBar);
-
-    // Contact modal
-    function openModal() {
-      document.getElementById('contactModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-      // Reset form state
-      document.getElementById('contactForm').style.display = 'block';
-      document.getElementById('formSuccess').classList.remove('active');
-    }
-
-    function closeModal() {
-      document.getElementById('contactModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close modal on overlay click
-    document.getElementById('contactModal').addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) closeModal();
-    });
-
-    // Close modal on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Form submission
-    function submitForm(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-
-      // Build mailto link with form data
-      const name = data.get('name');
-      const contact = data.get('contact');
-      const service = data.get('service');
-      const description = data.get('description');
-
-      const serviceNames = {
-        'landing': 'Быстрый лендинг / Лендинг под ключ',
-        'website': 'Многостраничный сайт',
-        'telegram': 'Telegram-бот для продаж',
-        'ai': 'AI-ассистент',
-        '3d': '3D-дизайн / фирменные фоны',
-        'support': 'Поддержка / продвижение',
-        'complex': 'Комплексный проект'
-      };
-
-      const subject = encodeURIComponent('Заявка с сайта Zubcoder Studio — ' + (serviceNames[service] || 'Общий запрос'));
-      const body = encodeURIComponent(
-        'Имя: ' + name + '\n' +
-        'Контакт: ' + contact + '\n' +
-        'Услуга: ' + (serviceNames[service] || 'Не выбрана') + '\n' +
-        'Описание: ' + (description || 'Не указано') + '\n\n' +
-        '---\nОтправлено с сайта Zubcoder Studio'
-      );
-
-      // Open mail client
-      window.open('mailto:zubcoder.app@yandex.ru?subject=' + subject + '&body=' + body, '_blank');
-
-      // Show success
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').classList.add('active');
-
-      // Auto close after 3s
-      setTimeout(closeModal, 3000);
-    }
-
-    // Wire up all CTA buttons to open modal
-    document.querySelectorAll('a[href="#contact"]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-      });
-    });
-
-    // Cookie banner
     function acceptCookies() {
       localStorage.setItem('cookies_accepted', 'true');
       document.getElementById('cookieBanner').classList.remove('active');
     }
-
     if (!localStorage.getItem('cookies_accepted')) {
-      setTimeout(() => {
-        document.getElementById('cookieBanner').classList.add('active');
-      }, 2000);
-    }
-
-    // Typing effect for hero subtitle
-    const heroP = document.querySelector('.hero p');
-    if (heroP) {
-      const text = heroP.textContent.trim();
-      heroP.innerHTML = '';
-      let i = 0;
-      const cursor = document.createElement('span');
-      cursor.className = 'typing-cursor';
-      heroP.appendChild(cursor);
-
-      function typeChar() {
-        if (i < text.length) {
-          heroP.insertBefore(document.createTextNode(text[i]), cursor);
-          i++;
-          setTimeout(typeChar, 25);
-        } else {
-          setTimeout(() => cursor.remove(), 2000);
-        }
-      }
-
-      setTimeout(typeChar, 500);
+      setTimeout(() => document.getElementById('cookieBanner').classList.add('active'), 2000);
     }
   </script>
 </body>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Конструктор заявки — Zubcoder Studio</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root {
+      --bg: #0a0a1a;
+      --card: #1a1a3e;
+      --text: #f0f0ff;
+      --muted: #a0a0c0;
+      --accent: #8d7cf3;
+      --cyan: #00cec9;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      padding: 20px 16px 28px;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .app {
+      width: min(100%, 560px);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 8vw, 40px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .intro {
+      margin: 0 0 28px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0 0 22px;
+      padding: 0;
+      border: 0;
+    }
+
+    legend {
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 10px 0;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: rgba(26,26,62,.85);
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+
+    .option:has(input:checked) {
+      border-color: var(--accent);
+      background: rgba(108,92,231,.2);
+    }
+
+    input {
+      accent-color: var(--cyan);
+      flex: 0 0 auto;
+      width: 19px;
+      height: 19px;
+      margin: 1px 0 0;
+    }
+
+    .option-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      line-height: 1.35;
+    }
+
+    .option-price {
+      color: var(--cyan);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .total {
+      position: sticky;
+      bottom: 12px;
+      z-index: 2;
+      margin: 26px 0 10px;
+      padding: 17px 18px;
+      border: 1px solid rgba(0,206,201,.3);
+      border-radius: 16px;
+      background: rgba(18,18,42,.96);
+      box-shadow: 0 12px 32px rgba(0,0,0,.25);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .support {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px 20px;
+      border: 0;
+      border-radius: 14px;
+      color: #fff;
+      background: linear-gradient(135deg, #6c5ce7, var(--cyan));
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(108,92,231,.28);
+    }
+
+    button:active { transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>Конструктор заявки</h1>
+    <p class="intro">Выберите пакет и нужные возможности — бот получит расчёт вместе с заявкой.</p>
+
+    <form id="requestForm">
+      <fieldset>
+        <legend>1. Выберите пакет</legend>
+        <label class="option">
+          <input type="radio" name="package" value="land" data-price="5000" checked>
+          <span class="option-copy"><span>Лендинг</span><span class="option-price">5 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="radio" name="package" value="bot" data-price="8000">
+          <span class="option-copy"><span>Бот-продавец</span><span class="option-price">8 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="radio" name="package" value="combo" data-price="12000">
+          <span class="option-copy"><span>Связка лендинг + бот</span><span class="option-price">12 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="radio" name="package" value="max" data-price="25000">
+          <span class="option-copy"><span>Всё + Mini App</span><span class="option-price">25 000 ₽</span></span>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Добавьте возможности</legend>
+        <label class="option">
+          <input type="checkbox" value="pay" data-price="3000">
+          <span class="option-copy"><span>Оплата в боте</span><span class="option-price">+3 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="checkbox" value="cat" data-price="4000">
+          <span class="option-copy"><span>Каталог</span><span class="option-price">+4 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="checkbox" value="book" data-price="4000">
+          <span class="option-copy"><span>Запись/бронирование</span><span class="option-price">+4 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="checkbox" value="mail" data-price="2000">
+          <span class="option-copy"><span>Рассылка/дожимы</span><span class="option-price">+2 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="checkbox" value="game" data-price="6000">
+          <span class="option-copy"><span>Игра-вовлечение</span><span class="option-price">+6 000 ₽</span></span>
+        </label>
+        <label class="option">
+          <input type="checkbox" value="copy" data-price="3000">
+          <span class="option-copy"><span>Тексты под ключ</span><span class="option-price">+3 000 ₽</span></span>
+        </label>
+      </fieldset>
+
+      <div class="total" id="total">Итого: от 5 000 ₽</div>
+      <p class="support">Первый месяц поддержки — бесплатно, далее от 3 000 ₽/мес</p>
+      <button type="submit">Отправить заявку</button>
+    </form>
+  </main>
+
+  <script>
+    const app = window.Telegram && window.Telegram.WebApp;
+    if (app) {
+      app.expand();
+      const bg = app.themeParams && app.themeParams.bg_color;
+      if (bg) document.body.style.background = bg;
+    }
+
+    const form = document.getElementById('requestForm');
+    const totalNode = document.getElementById('total');
+    const optionInputs = [...form.querySelectorAll('input')];
+    const packageInputs = [...form.querySelectorAll('input[name="package"]')];
+
+    function selectedPackage() {
+      const input = packageInputs.find(item => item.checked);
+      return { key: input.value, price: Number(input.dataset.price) };
+    }
+
+    function selectedOptions() {
+      return optionInputs.filter(item => item.type === 'checkbox' && item.checked);
+    }
+
+    function total() {
+      return selectedPackage().price + selectedOptions().reduce((sum, item) => sum + Number(item.dataset.price), 0);
+    }
+
+    function formatPrice(value) {
+      return value.toLocaleString('ru-RU').replace(/\u00a0/g, ' ');
+    }
+
+    function updateTotal() {
+      totalNode.textContent = 'Итого: от ' + formatPrice(total()) + ' ₽';
+    }
+
+    function makePayload() {
+      const options = selectedOptions().map(item => item.value).join('.') || 'none';
+      return 'app_' + selectedPackage().key + '-' + options + '-' + total();
+    }
+
+    function sendRequest(event) {
+      event.preventDefault();
+      const link = 'https://t.me/Zubcoder_Studio_bot?start=' + makePayload();
+      if (app && app.initData) {
+        app.openTelegramLink(link);
+        app.close();
+      } else {
+        location.href = link;
+      }
+    }
+
+    form.addEventListener('change', updateTotal);
+    form.addEventListener('submit', sendRequest);
+    updateTotal();
+  </script>
+</body>
+</html>
